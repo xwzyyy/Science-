@@ -1,0 +1,178 @@
+
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class node6 as "bianjibu  /* 编辑部 */" {
+   addtime  /* 创建时间 */: timestamp
+   bianjizhanghao  /* 编辑账号 */: varchar(200)
+   mima  /* 密码 */: varchar(200)
+   bianjixingming  /* 编辑姓名 */: varchar(200)
+   xingbie  /* 性别 */: varchar(200)
+   nianling  /* 年龄 */: varchar(200)
+   touxiang  /* 头像 */: varchar(200)
+   bianjishouji  /* 编辑手机 */: varchar(200)
+   id  /* 主键 */: bigint(20)
+}
+class node4 as "config  /* 配置文件 */" {
+   name  /* 配置参数名称 */: varchar(100)
+   value  /* 配置参数值 */: varchar(100)
+   id  /* 主键 */: bigint(20)
+}
+class node2 as "gaigaohuifu  /* 改稿回复 */" {
+   addtime  /* 创建时间 */: timestamp
+   gaojianbianhao  /* 稿件编号 */: varchar(200)
+   gaojianbiaoti  /* 稿件标题 */: varchar(200)
+   gaojianleixing  /* 稿件类型 */: varchar(200)
+   zuozhezhanghao  /* 作者账号 */: varchar(200)
+   zuozhexingming  /* 作者姓名 */: varchar(200)
+   zuozheshouji  /* 作者手机 */: varchar(200)
+   gaigaoshijian  /* 改稿时间 */: datetime
+   bianjizhanghao  /* 编辑账号 */: varchar(200)
+   bianjixingming  /* 编辑姓名 */: varchar(200)
+   shengaozhanghao  /* 审稿账号 */: varchar(200)
+   shengaoxingming  /* 审稿姓名 */: varchar(200)
+   gaigaowenjian  /* 改稿文件 */: varchar(200)
+   huifuneirong  /* 回复内容 */: longtext
+   sfsh  /* 是否审核 */: varchar(200)
+   shhf  /* 审核回复 */: longtext
+   id  /* 主键 */: bigint(20)
+}
+class node1 as "gaigaotongzhi  /* 改稿通知 */" {
+   addtime  /* 创建时间 */: timestamp
+   gaojianbianhao  /* 稿件编号 */: varchar(200)
+   gaojianbiaoti  /* 稿件标题 */: varchar(200)
+   gaojianleixing  /* 稿件类型 */: varchar(200)
+   zuozhezhanghao  /* 作者账号 */: varchar(200)
+   zuozhexingming  /* 作者姓名 */: varchar(200)
+   zuozheshouji  /* 作者手机 */: varchar(200)
+   bianjizhanghao  /* 编辑账号 */: varchar(200)
+   bianjixingming  /* 编辑姓名 */: varchar(200)
+   shengaozhanghao  /* 审稿账号 */: varchar(200)
+   shengaoxingming  /* 审稿姓名 */: varchar(200)
+   gaigaoneirong  /* 改稿内容 */: longtext
+   tongzhishijian  /* 通知时间 */: datetime
+   huifuzhuangtai  /* 回复状态 */: varchar(200)
+   id  /* 主键 */: bigint(20)
+}
+class node5 as "gaojiankanzai  /* 稿件刊载 */" {
+   addtime  /* 创建时间 */: timestamp
+   gaojianbianhao  /* 稿件编号 */: varchar(200)
+   gaojianbiaoti  /* 稿件标题 */: varchar(200)
+   gaojianleixing  /* 稿件类型 */: varchar(200)
+   zuozhezhanghao  /* 作者账号 */: varchar(200)
+   zuozhexingming  /* 作者姓名 */: varchar(200)
+   zuozheshouji  /* 作者手机 */: varchar(200)
+   bianjizhanghao  /* 编辑账号 */: varchar(200)
+   bianjixingming  /* 编辑姓名 */: varchar(200)
+   shengaozhanghao  /* 审稿账号 */: varchar(200)
+   shengaoxingming  /* 审稿姓名 */: varchar(200)
+   luyongshijian  /* 录用时间 */: datetime
+   choujin  /* 酬金 */: float
+   kanzaishijian  /* 刊载时间 */: date
+   ispay  /* 是否支付 */: varchar(200)
+   id  /* 主键 */: bigint(20)
+}
+class node7 as "gaojianleixing  /* 稿件类型 */" {
+   addtime  /* 创建时间 */: timestamp
+   gaojianleixing  /* 稿件类型 */: varchar(200)
+   id  /* 主键 */: bigint(20)
+}
+class node9 as "gaojianluyong  /* 稿件录用 */" {
+   addtime  /* 创建时间 */: timestamp
+   gaojianbianhao  /* 稿件编号 */: varchar(200)
+   gaojianbiaoti  /* 稿件标题 */: varchar(200)
+   gaojianleixing  /* 稿件类型 */: varchar(200)
+   zuozhezhanghao  /* 作者账号 */: varchar(200)
+   zuozhexingming  /* 作者姓名 */: varchar(200)
+   zuozheshouji  /* 作者手机 */: varchar(200)
+   bianjizhanghao  /* 编辑账号 */: varchar(200)
+   bianjixingming  /* 编辑姓名 */: varchar(200)
+   shengaozhanghao  /* 审稿账号 */: varchar(200)
+   shengaoxingming  /* 审稿姓名 */: varchar(200)
+   luyongshijian  /* 录用时间 */: datetime
+   banmianfei  /* 版面费 */: varchar(200)
+   luyonggaojian  /* 录用稿件 */: varchar(200)
+   kanzaizhuangtai  /* 刊载状态 */: varchar(200)
+   ispay  /* 是否支付 */: varchar(200)
+   id  /* 主键 */: bigint(20)
+}
+class node3 as "shangchuangaojian  /* 上传稿件 */" {
+   addtime  /* 创建时间 */: timestamp
+   gaojianbianhao  /* 稿件编号 */: varchar(200)
+   gaojianbiaoti  /* 稿件标题 */: varchar(200)
+   gaojianleixing  /* 稿件类型 */: varchar(200)
+   zuozhezhanghao  /* 作者账号 */: varchar(200)
+   zuozhexingming  /* 作者姓名 */: varchar(200)
+   zuozheshouji  /* 作者手机 */: varchar(200)
+   gaojian  /* 稿件 */: varchar(200)
+   shangchuanshijian  /* 上传时间 */: datetime
+   sfsh  /* 是否审核 */: varchar(200)
+   shhf  /* 审核回复 */: longtext
+   id  /* 主键 */: bigint(20)
+}
+class node11 as "shengaoren  /* 审稿人 */" {
+   addtime  /* 创建时间 */: timestamp
+   shengaozhanghao  /* 审稿账号 */: varchar(200)
+   mima  /* 密码 */: varchar(200)
+   shengaoxingming  /* 审稿姓名 */: varchar(200)
+   xingbie  /* 性别 */: varchar(200)
+   nianling  /* 年龄 */: varchar(200)
+   touxiang  /* 头像 */: varchar(200)
+   shengaoshouji  /* 审稿手机 */: varchar(200)
+   id  /* 主键 */: bigint(20)
+}
+class node0 as "shougao  /* 收稿 */" {
+   addtime  /* 创建时间 */: timestamp
+   gaojianbianhao  /* 稿件编号 */: varchar(200)
+   gaojianbiaoti  /* 稿件标题 */: varchar(200)
+   gaojianleixing  /* 稿件类型 */: varchar(200)
+   zuozhezhanghao  /* 作者账号 */: varchar(200)
+   zuozhexingming  /* 作者姓名 */: varchar(200)
+   zuozheshouji  /* 作者手机 */: varchar(200)
+   shangchuanshijian  /* 上传时间 */: varchar(200)
+   gaojian  /* 稿件 */: varchar(200)
+   bianjizhanghao  /* 编辑账号 */: varchar(200)
+   bianjixingming  /* 编辑姓名 */: varchar(200)
+   shengaozhanghao  /* 审稿账号 */: varchar(200)
+   shengaoxingming  /* 审稿姓名 */: varchar(200)
+   shougaoshijian  /* 收稿时间 */: datetime
+   luyongzhuangtai  /* 录用状态 */: varchar(200)
+   crossuserid  /* 跨表用户id */: bigint(20)
+   crossrefid  /* 跨表主键id */: bigint(20)
+   sfsh  /* 是否审核 */: varchar(200)
+   shhf  /* 审核回复 */: longtext
+   id  /* 主键 */: bigint(20)
+}
+class node10 as "token  /* token表 */" {
+   userid  /* 用户id */: bigint(20)
+   username  /* 用户名 */: varchar(100)
+   tablename  /* 表名 */: varchar(100)
+   role  /* 角色 */: varchar(100)
+   token  /* 密码 */: varchar(200)
+   addtime  /* 新增时间 */: timestamp
+   expiratedtime  /* 过期时间 */: timestamp
+   id  /* 主键 */: bigint(20)
+}
+class node8 as "users  /* 用户表 */" {
+   username  /* 用户名 */: varchar(100)
+   password  /* 密码 */: varchar(100)
+   role  /* 角色 */: varchar(100)
+   addtime  /* 新增时间 */: timestamp
+   id  /* 主键 */: bigint(20)
+}
+class node12 as "zuozhe  /* 作者 */" {
+   addtime  /* 创建时间 */: timestamp
+   zuozhezhanghao  /* 作者账号 */: varchar(200)
+   mima  /* 密码 */: varchar(200)
+   zuozhexingming  /* 作者姓名 */: varchar(200)
+   xingbie  /* 性别 */: varchar(200)
+   nianling  /* 年龄 */: varchar(200)
+   touxiang  /* 头像 */: varchar(200)
+   zuozheshouji  /* 作者手机 */: varchar(200)
+   id  /* 主键 */: bigint(20)
+}
+
+@enduml

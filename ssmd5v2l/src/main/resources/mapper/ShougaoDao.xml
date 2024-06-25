@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.ShougaoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.ShougaoEntity" id="shougaoMap">
+        <result property="gaojianbianhao" column="gaojianbianhao"/>
+        <result property="gaojianbiaoti" column="gaojianbiaoti"/>
+        <result property="gaojianleixing" column="gaojianleixing"/>
+        <result property="zuozhezhanghao" column="zuozhezhanghao"/>
+        <result property="zuozhexingming" column="zuozhexingming"/>
+        <result property="zuozheshouji" column="zuozheshouji"/>
+        <result property="shangchuanshijian" column="shangchuanshijian"/>
+        <result property="gaojian" column="gaojian"/>
+        <result property="bianjizhanghao" column="bianjizhanghao"/>
+        <result property="bianjixingming" column="bianjixingming"/>
+        <result property="shengaozhanghao" column="shengaozhanghao"/>
+        <result property="shengaoxingming" column="shengaoxingming"/>
+        <result property="shougaoshijian" column="shougaoshijian"/>
+        <result property="luyongzhuangtai" column="luyongzhuangtai"/>
+        <result property="crossuserid" column="crossuserid"/>
+        <result property="crossrefid" column="crossrefid"/>
+        <result property="sfsh" column="sfsh"/>
+        <result property="shhf" column="shhf"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.ShougaoVO" >
+		SELECT * FROM shougao  shougao         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.ShougaoVO" >
+		SELECT  shougao.* FROM shougao  shougao
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.ShougaoView" >
+
+		SELECT  shougao.* FROM shougao  shougao 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.ShougaoView" >
+		SELECT * FROM shougao  shougao <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+	
+</mapper>
